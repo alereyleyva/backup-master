@@ -4,7 +4,7 @@ services:
       context: .
       target: app_dev
     volumes:
-      - .:/home/dev/backup-master-app
+      - .:/home/dev/backup-master
       - ./php/conf.d/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini:ro
     environment:
       XDEBUG_MODE: debug

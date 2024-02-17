@@ -1,6 +1,6 @@
 FROM php:8.3-fpm as app_base
 
-WORKDIR /home/dev/backup-master-app
+WORKDIR /home/dev/backup-master
 
 ENV COMPOSER_ALLOW_SUPERUSER=1
 
