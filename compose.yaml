@@ -1,0 +1,8 @@
+services:
+  app:
+    container_name: backup-master-app
+    build:
+      context: .
+      target: app_prod
+    extra_hosts:
+      - host.docker.internal:host-gateway
