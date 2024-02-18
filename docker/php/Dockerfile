@@ -12,6 +12,8 @@ RUN apt update && apt install -y unzip
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
+RUN echo 'alias backup="/home/dev/backup-master/bin/console backup"' >> /home/dev/.bashrc
+
 FROM app_base as app_dev
 
 RUN addgroup --gid 1000 dev
