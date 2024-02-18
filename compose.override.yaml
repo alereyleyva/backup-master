@@ -5,7 +5,7 @@ services:
       target: app_dev
     volumes:
       - .:/home/dev/backup-master
-      - ./php/conf.d/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini:ro
+      - ./docker/php/conf.d/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini:ro
     environment:
       XDEBUG_MODE: debug
       PHP_IDE_CONFIG: serverName=local

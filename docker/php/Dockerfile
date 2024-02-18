@@ -17,7 +17,7 @@ FROM app_base as app_dev
 RUN addgroup --gid 1000 dev
 RUN adduser --disabled-password --gecos '' --uid 1000 --gid 1000 dev
 
-COPY php/conf.d/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
+COPY ./docker/php/conf.d/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 
 RUN install-php-extensions xdebug
 
