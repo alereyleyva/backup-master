@@ -1,4 +1,6 @@
 {
+    "name": "alereyleyva/backup-master",
+    "description": "Command line tool for user backups",
     "type": "project",
     "license": "proprietary",
     "minimum-stability": "stable",
