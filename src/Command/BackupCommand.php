@@ -2,6 +2,7 @@
 
 namespace App\Command;
 
+use App\Config\YamlBackupConfigParser;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
@@ -15,6 +16,8 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 )]
 class BackupCommand extends Command
 {
+    private const CONFIG_FILE_ARGUMENT = 'config_file';
+
     public function __construct()
     {
         parent::__construct();
@@ -23,13 +26,17 @@ class BackupCommand extends Command
     protected function configure(): void
     {
         $this
-            ->addArgument('config-file', InputArgument::REQUIRED, 'Backup config file')
+            ->addArgument(self::CONFIG_FILE_ARGUMENT, InputArgument::REQUIRED, 'Backup config file')
         ;
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $io = new SymfonyStyle($input, $output);
+
+        $configFile = $input->getArgument(self::CONFIG_FILE_ARGUMENT);
+
+        $configParser = new YamlBackupConfigParser($configFile);
 
         $io->success('Backup finished successfully');
 
